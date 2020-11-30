@@ -1,1 +1,19 @@
-<h2>Homepage</h2>
+<div class="index-body">
+  <div class="jumbotron">
+    <h1 class="display-4">My Closet!</h1>
+    <p class="lead">Simple to use sneaker app designed to help you keep track of what you have, need, and like.</p>
+    <hr class="my-4">
+    <p>It uses an API that pulls from 4 different sources to provide you with the most up to date info for any style.</p>
+    <% if (!currentUser) { %>
+    <a class="btn btn-outline-success btn-lg" href="/auth/login" role="button">Login</a>
+    <a class="btn btn-outline-danger btn-lg" href="/auth/signup" role="button">Sign Up</a>
+    <% } else { %>
+      <div class="index-menu">
+        <div class="row"><img src="https://dummyimage.com/100/00ff48/ff0000.png&text=Image+Found" alt="not found image" /></div>
+        <div class="row"><img src="https://dummyimage.com/100/00ff48/ff0000.png&text=Image+Found" alt="not found image" /></div>
+        <div class="row"><img src="https://dummyimage.com/100/00ff48/ff0000.png&text=Image+Found" alt="not found image" /></div>
+        <div class="row"><img src="https://dummyimage.com/100/00ff48/ff0000.png&text=Image+Found" alt="not found image" /></div>
+      </div>
+    <% } %>
+  </div>
+</div>

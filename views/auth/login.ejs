@@ -1,4 +1,5 @@
-<form action="/auth/login" method="POST">
+<!-- OLD -->
+<!-- <form action="/auth/login" method="POST">
   <label for="auth-email">Email</label>
   <input id="auth-email" type="email" name="email">
 
@@ -6,4 +7,19 @@
   <input id="auth-password" type="password" name="password">
 
   <input type="submit" value="Log In">
-</form>
+</form> -->
+
+<div class="login">
+  <form action="/auth/login" method="POST">
+    <div class="form-group">
+      <label for="auth-email">Email Address</label>
+      <input type="email" class="form-control" id="auth-email" name="email" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="auth-password">Password</label>
+      <input type="password" class="form-control" name="password" id="auth-password">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Log In</button>
+  </form>
+</div>

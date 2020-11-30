@@ -5,5 +5,47 @@ nav ul li {
 }
 
 h1 {
-  color: chartreuse;
+  color: black;
+}
+
+body {
+  /* opacity: .5; */
+  padding-top: 55px;
+  background-color: lightgrey;
+  /* background-image: url("https://i.imgur.com/dqUhNpU.jpg"); */
+  background-size: cover;
+}
+
+.index-body {
+  text-align: center;
+  margin: auto;
+  width: 700px;
+}
+
+.login, .signup {
+  text-align: center;
+  width: 300px;
+  margin: auto;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border: black solid 1px;
+  border-radius: 10px;
+}
+
+img:hover {
+  opacity: .7;
+}
+
+.row {
+  justify-content: space-evenly;
+  flex: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.index-menu {
+  display: flex;
 }

@@ -1,3 +1,8 @@
+# My Closet
+![Image of Wireframe](https://i.imgur.com/0E0vq3w.png)
+![Image of EDR](https://i.imgur.com/jV7JNlH.png)
+
+
 # Express Authentication
 
 Express authentication template using Passport + flash messages + custom middleware
