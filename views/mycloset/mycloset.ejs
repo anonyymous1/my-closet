@@ -3,15 +3,15 @@
 <div class="container">
     <% sneakers.forEach(function(sneaker) { %>
         <div class="closet-card">
-            <img src="<%= sneaker.thumbnail%>" class="card-img-top" alt="...">
+            <a href="/mycloset/details/<%= sneaker.styleId %>"><img src="<%= sneaker.thumbnail%>" class="card-img-top"></a>
             <div class="card-body">
             <h5><%= sneaker.shoeName.toUpperCase()%></h5>
             <hr>
             <h5 class="card-title"><%= sneaker.brand.toUpperCase()%></h5>
-            <p class="card-title">Style ID:<%= sneaker.styleId%></p>
-            <form method="GET" action="#">
-            <button class="btn btn-outline-danger" type="submit">Remove from Closet</button>
-              </form>
+            <p class="card-title">Style ID:<%= sneaker.styleId %></p>
+            <form method="POST" action="/mycloset/<%= sneaker.styleId %>">
+              <button class="btn btn-outline-danger" type="submit">Remove from My Closet</button>
+            </form>
             </div>
           </div>
     <% }); %>

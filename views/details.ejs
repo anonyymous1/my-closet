@@ -1,0 +1,26 @@
+<h1>Details</h1>
+<div class="container">
+    <% sneaker.forEach(function(sneaker) { %>
+        <div class="details-card">
+            <img src="<%= sneaker.thumbnail%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= sneaker.silhoutte.toUpperCase()%></h5>
+              <p class="card-title"><%= sneaker.colorway%></p>
+              <h6 class="card-title">Release Date: <%= sneaker.releaseDate%></h6>
+              <hr>
+              <p class="card-text">Retail Price: $<%= sneaker.retailPrice%></p>
+              <p class="card-text"><%= sneaker.description%></p>
+              <a href="<%= sneaker.resellLinks.stockX%>">StockX</a><br>
+              <a href="<%= sneaker.resellLinks.goat%>">GOAT</a><br>
+              <a href="<%= sneaker.resellLinks.flightClub%>">Flight Club</a><br>
+              <a href="<%= sneaker.resellLinks.stadiumGoods%>">Stadium Goods</a>
+              
+              
+              
+              
+              
+              
+            </div>
+          </div>
+    <% }); %>
+  </div>

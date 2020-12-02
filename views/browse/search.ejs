@@ -20,8 +20,8 @@
                     <p class="card-title"><%= product.colorway%></p>
                     <h6 class="card-title">Release Date: <%= product.releaseDate%></h6>
                     <hr>
-                    <p class="card-text">Retail Price: $<%= product.retailPrice%></p>
-                    <p class="card-text"><%= product.description%></p>
+                    <p class="card-text">Retail Price: $ <% if (!product.retailPrice) { %>???<% } else { %><%= product.retailPrice%><% } %></p>
+                    <p class="card-text"><% if (!product.description) { %>Sorry, there is no description for this item.<% } else { %><%= product.description%><% } %></p>
                     <form method="POST" action="/browse/mostPopular">
                         <input hidden type="text" name="shoeName" value="<%= product.shoeName %>">
                         <input hidden type="text" name="styleID" value="<%= product.styleID %>">
