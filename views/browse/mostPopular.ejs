@@ -1,1 +1,24 @@
-<h1>MOST POPULAR EJS</h1>
+<h1>MOST POPULAR</h1>
+
+  <div class="container">
+    <% product.forEach(function(product) { %>
+        <div class="card">
+            <img src="<%= product.thumbnail%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.silhoutte.toUpperCase()%></h5>
+              <p class="card-title"><%= product.colorway%></p>
+              <h6 class="card-title">Release Date: <%= product.releaseDate%></h6>
+              <hr>
+              <p class="card-text">Retail Price: $<%= product.retailPrice%></p>
+              <p class="card-text"><%= product.description%></p>
+              <form method="POST" action="/browse/mostPopular">
+                <input hidden type="text" name="shoeName" value="<%= product.shoeName %>">
+                <input hidden type="text" name="styleID" value="<%= product.styleID %>">
+                <input hidden type="text" name="thumbnail" value="<%= product.thumbnail %>">
+                <input hidden type="text" name="brand" value="<%= product.brand%>">
+                <button class="btn btn-outline-danger" type="submit">Add to Closet</button>
+              </form>
+            </div>
+          </div>
+    <% }); %>
+  </div>

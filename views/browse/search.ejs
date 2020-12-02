@@ -1,0 +1,36 @@
+<h1>SEARCH</h1>
+
+<form action="/browse/searchTerm" method="GET">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="" name="searchTerm" id="searchTerm">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+      </div>
+</form>
+
+<div class="container">
+    <% if (product) { %>
+
+        <% product.forEach(function(product) { %>
+            <div class="card">
+                <img src="<%= product.thumbnail%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= product.silhoutte.toUpperCase()%></h5>
+                    <p class="card-title"><%= product.colorway%></p>
+                    <h6 class="card-title">Release Date: <%= product.releaseDate%></h6>
+                    <hr>
+                    <p class="card-text">Retail Price: $<%= product.retailPrice%></p>
+                    <p class="card-text"><%= product.description%></p>
+                    <form method="POST" action="/browse/mostPopular">
+                        <input hidden type="text" name="shoeName" value="<%= product.shoeName %>">
+                        <input hidden type="text" name="styleID" value="<%= product.styleID %>">
+                        <input hidden type="text" name="thumbnail" value="<%= product.thumbnail %>">
+                        <input hidden type="text" name="brand" value="<%= product.brand%>">
+                        <button class="btn btn-outline-danger" type="submit">Add to Closet</button>
+                    </form>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    <% } %> 

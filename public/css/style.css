@@ -1,41 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
 }
 
-h1 {
+h1, h3 {
+  padding: 50px 0px 50px 0px;
   color: black;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
 }
 
 body {
   /* opacity: .5; */
-  padding-top: 55px;
-  background-color: lightgrey;
+  padding-top: 75px;
+  background-color: white;
   /* background-image: url("https://i.imgur.com/dqUhNpU.jpg"); */
   background-size: cover;
 }
 
 .index-body {
+  padding-top: 100px;
   text-align: center;
   margin: auto;
   width: 700px;
 }
 
 .login, .signup {
+  padding-top: 100px;
   text-align: center;
   width: 300px;
   margin: auto;
 }
 
-img {
+.menu-img {
   width: 150px;
   height: 150px;
-  border: black solid 1px;
-  border-radius: 10px;
 }
 
-img:hover {
+.menu-img:hover {
   opacity: .7;
 }
 
@@ -48,4 +53,52 @@ img:hover {
 /* Clear floats after image containers */
 .index-menu {
   display: flex;
+}
+
+.browse-index-menu {
+  display: flex;
+}
+
+.card-img-top {
+  width: 250px;
+  align-self: center;
+}
+
+.card-img-top:hover {
+  opacity: .75;
+}
+
+.card {
+  width: 350px;
+  height: 600px;
+  margin: 5px;
+  padding: 5px;
+  background-color: white;
+  border: white 1px solid;
+  border-radius: 25px;
+  display:inline-block;
+  text-align: center;
+  font-size: 11px;
+}
+
+.closet-card {
+  width: 350px;
+  height: 400px;
+  margin: 5px;
+  padding: 5px;
+  background-color: white;
+  border: black 1px solid;
+  border-radius: 25px;
+  display:inline-block;
+  text-align: center;
+  font-size: 11px;
+}
+
+#logOutButton {
+  margin-left: 10px;
+}
+
+.input-group {
+  margin-left: 100px;
+  width: 300px;
 }

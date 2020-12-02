@@ -47,13 +47,14 @@ app.use(flash());
 // message that will be accessible to every view
 app.use((req, res, next)=> {
   // before every route, we will attach a user to res.local
+  console.log(req.flash);
   res.locals.alerts = req.flash();
   res.locals.currentUser = req.user;
   next();
 })
 
 app.get('/', (req, res) => {
-  console.log(res.locals.alerts);
+  console.log('RESLOCALALERTS', res.locals.alerts);
   res.render('index', { alerts: res.locals.alerts});
 });
 
@@ -62,9 +63,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 
-// sneaks.getProducts("converse", function(err, products){
-//   // console.log(products)
-// })
+
 
 // sneaks.getProductPrices("FY2903", function(err, product){
 //   // console.log(product)
