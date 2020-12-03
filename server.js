@@ -66,7 +66,7 @@ app.use('/auth', require('./routes/auth'));
 app.use('/mycloset', mycloset)
 app.use('/browse', browse)
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`You're looking for sneakers on port ${PORT} 👟`);
 });
