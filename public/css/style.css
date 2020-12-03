@@ -83,7 +83,7 @@ body {
 
 .closet-card {
   width: 350px;
-  height: 400px;
+  height: 450px;
   margin: 5px;
   padding: 5px;
   background-color: white;
@@ -94,11 +94,34 @@ body {
   font-size: 11px;
 }
 
-#logOutButton {
-  margin-left: 10px;
+#logOutButton, #profileButton {
+  margin-left: 2px;
+  margin-bottom: 5px;
 }
 
 .input-group {
   margin-left: 100px;
   width: 300px;
+}
+
+h4 {
+  padding-left: 50px;
+}
+
+.comment {
+  padding-left: 50px;
+  width: 600px;
+}
+.profile-div{
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.user-info {
+  padding-left: 50px;
+}
+
+.profile-img {
+  width:300px;
+  padding-left: 50px;
 }

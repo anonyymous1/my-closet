@@ -23,11 +23,10 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
-app.use('/mycloset', mycloset)
-app.use('/browse', browse)
+
 
 //secret: What we actulaly giveing the user on our site as a session cookie
-//resave: saves the session even if its modified, make this flase from start
+//resave: saves the session even if its modified, make this false from start
 //saveUninitlaized: if we have a new session, we save it, and therefore making that true.
 const sessionObject = {
   secret: SECRET_SESSION,
@@ -62,17 +61,10 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
-
-
-
-// sneaks.getProductPrices("FY2903", function(err, product){
-//   // console.log(product)
-// })
-
-
-
 app.use('/auth', require('./routes/auth'));
 
+app.use('/mycloset', mycloset)
+app.use('/browse', browse)
 
 const PORT = process.env.PORT || 7000;
 const server = app.listen(PORT, () => {

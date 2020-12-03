@@ -1,26 +1,37 @@
 <h1>Details</h1>
 <div class="container">
-    <% sneaker.forEach(function(sneaker) { %>
         <div class="details-card">
-            <img src="<%= sneaker.thumbnail%>" class="card-img-top" alt="...">
+            <img src="<%= sneaker[0].thumbnail%>" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title"><%= sneaker.silhoutte.toUpperCase()%></h5>
-              <p class="card-title"><%= sneaker.colorway%></p>
-              <h6 class="card-title">Release Date: <%= sneaker.releaseDate%></h6>
+              <h5 class="card-title"><%= sneaker[0].silhoutte.toUpperCase()%></h5>
+              <p class="card-title"><%= sneaker[0].colorway%></p>
+              <h6 class="card-title">Release Date: <%= sneaker[0].releaseDate%></h6>
               <hr>
-              <p class="card-text">Retail Price: $<%= sneaker.retailPrice%></p>
-              <p class="card-text"><%= sneaker.description%></p>
-              <a href="<%= sneaker.resellLinks.stockX%>">StockX</a><br>
-              <a href="<%= sneaker.resellLinks.goat%>">GOAT</a><br>
-              <a href="<%= sneaker.resellLinks.flightClub%>">Flight Club</a><br>
-              <a href="<%= sneaker.resellLinks.stadiumGoods%>">Stadium Goods</a>
-              
-              
-              
-              
-              
-              
+              <p class="card-text">Retail Price: $<%= sneaker[0].retailPrice%></p>
+              <h6>Lowest Resell Prices:</h6>
+              <p class="card-text badge badge-light" ><a href="<%= sneaker[0].resellLinks.stockX%>">StockX </a>$<%= sneaker[0].lowestResellPrice.stockX %> </p> 
+              <p class="card-text badge badge-light" ><a href="<%= sneaker[0].resellLinks.goat%>">GOAT </a>$<%= sneaker[0].lowestResellPrice.goat %> </p> 
+              <p class="card-text badge badge-light" ><a href="<%= sneaker[0].resellLinks.flightClub%>">Flight Club </a>$<%= sneaker[0].lowestResellPrice.flightClub %> </p> 
+              <p class="card-text badge badge-light" ><a href="<%= sneaker[0].resellLinks.stadiumGoods%>">Stadium Goods </a>$<%= sneaker[0].lowestResellPrice.stadiumGoods %> </p> 
+              <p class="card-text"><% if (!sneaker[0].description) { %>Sorry, there is no description for this item.<% } else { %><%= sneaker[0].description%><% } %></p>
             </div>
           </div>
-    <% }); %>
+  </div>
+  <hr>
+  <h4>Comment:</h4>
+  <div class="comment">
+    <form>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">User</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<%= currentUser.name %> ">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Comment</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword">
+        </div>
+      </div>
+    </form>
   </div>

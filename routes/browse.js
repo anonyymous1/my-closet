@@ -2,16 +2,17 @@ const express = require('express');
 const browse = express.Router();
 const db = require('../models');
 const SneaksAPI = require('sneaks-api');
+const isLoggedIn = require('../middleware/isLoggedIn');
 const sneaks = new SneaksAPI();
 
 
-browse.get('/', (req, res) => {
+browse.get('/', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
     res.render('browse/browse', { alerts, currentUser })
 })
 
-browse.get('/mostPopular', (req, res) => {
+browse.get('/mostPopular', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
     sneaks.getMostPopular(function(err, products){
@@ -20,7 +21,7 @@ browse.get('/mostPopular', (req, res) => {
     })
 })
 
-browse.post('/mostPopular', (req, res) => {
+browse.post('/mostPopular', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
     let brand = req.body.brand;
@@ -28,17 +29,25 @@ browse.post('/mostPopular', (req, res) => {
     let styleID = req.body.styleID;
     let thumbnail = req.body.thumbnail;
     db.sneaker.findOrCreate({
-        where: {shoeName: shoeName},
-        defaults : {
+        where: {
             shoeName: shoeName,
             brand: brand,
             styleId: styleID,
-            thumbnail: thumbnail}
+            thumbnail: thumbnail
+        }
+        }).then(([sneaker, created]) =>{
+            db.favorite.findOrCreate({
+                where: {
+                    userId: req.user.id,
+                    sneakerId: styleID
+                }
+            }).then(()=>{
+            res.redirect('/browse/mostPopular')
         })
-    res.redirect('/browse/mostPopular')
     })
+})
 
-browse.get('/searchTerm', (req, res) => {
+browse.get('/searchTerm', isLoggedIn,(req, res) => {
     const searchTerm = req.query.searchTerm;
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
@@ -48,12 +57,21 @@ browse.get('/searchTerm', (req, res) => {
     })
 })
 
-browse.get('/search', (req, res) => {
+browse.get('/search', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
     sneaks.getProducts(``, function(err, products){
         const product = products
     res.render('browse/search', { alerts, currentUser, product })
+    })
+})
+
+browse.get('/details/:styleId', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`${styleId}`, function(err, sneaker){
+        res.render('details', {currentUser, alerts, sneaker})
     })
 })
 

@@ -3,13 +3,14 @@
   <div class="container">
     <% product.forEach(function(product) { %>
         <div class="card">
-            <img src="<%= product.thumbnail%>" class="card-img-top" alt="...">
+            <a href="/browse/details/<%= product.styleID %>"><img src="<%= product.thumbnail%>" class="card-img-top"></a>
             <div class="card-body">
               <h5 class="card-title"><%= product.silhoutte.toUpperCase()%></h5>
               <p class="card-title"><%= product.colorway%></p>
               <h6 class="card-title">Release Date: <%= product.releaseDate%></h6>
               <hr>
               <p class="card-text">Retail Price: $<%= product.retailPrice%></p>
+              <hr>
               <p class="card-text"><%= product.description%></p>
               <form method="POST" action="/browse/mostPopular">
                 <input hidden type="text" name="shoeName" value="<%= product.shoeName %>">

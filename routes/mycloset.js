@@ -3,32 +3,43 @@ const mycloset = express.Router();
 const db = require('../models');
 const passport = require('../config/ppConfig');
 const SneaksAPI = require('sneaks-api');
+const isLoggedIn = require('../middleware/isLoggedIn');
 const sneaks = new SneaksAPI();
 
-mycloset.get('/', (req, res) => {
+mycloset.get('/', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
+    console.log(`Current User is #${currentUser.id}`);
     const alerts = res.locals.alerts
-    db.sneaker.findAll().then (sneakers => {
-        res.render('mycloset/mycloset', { alerts, currentUser, sneakers })
+    db.favorite.findAll({
+        where: { userId: currentUser.id },
+        // include: [
+        //     db.sneaker.findAll({
+        //         where: {sneakerId: styleId}
+        //     })
+        // ]
+    }).then (favorite => {
+        favorite.forEach(function(favorite){
+            console.log(favorite.sneakerId);
+        })
+        res.render('mycloset/mycloset', { alerts, currentUser, favorite })
     })
 })
 
+
 mycloset.post('/:id', function(req, res) {
     let styleId = req.params.id;
-    console.log(styleId);
-    db.sneaker.destroy({ where: { styleId } })
+    db.favorite.destroy({ where: { sneakerId: styleId } })
     
     .then(() => {
         res.redirect('/mycloset');
     })
 })
 
-mycloset.get('/details/:styleId', (req,res) => {
+mycloset.get('/details/:styleId', isLoggedIn, (req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`${styleId}`, function(err, sneaker){
-        console.log(sneaker);
+    sneaks.getProducts(`${styleId}`, function(err, sneaker){;
         res.render('details', {currentUser, alerts, sneaker})
     })
 })
