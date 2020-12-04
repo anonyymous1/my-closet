@@ -6,27 +6,13 @@ const SneaksAPI = require('sneaks-api');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const sneaks = new SneaksAPI();
 
-mycloset.get('/', isLoggedIn, (req, res) => {
-    const currentUser = res.locals.currentUser
-    console.log(`Current User is #${currentUser.id}`);
-    const alerts = res.locals.alerts
-    db.favorite.findAll({
-        where: { userId: currentUser.id },
-        include: [db.sneaker]
-    }).then (favorite => {
-        favorite.forEach(function(favorite){
-            console.log(favorite.sneakerId);
-        })
-        res.render('mycloset/mycloset', { alerts, currentUser, favorite })
-    })
-})
-
 // mycloset.get('/', isLoggedIn, (req, res) => {
 //     const currentUser = res.locals.currentUser
 //     console.log(`Current User is #${currentUser.id}`);
 //     const alerts = res.locals.alerts
 //     db.favorite.findAll({
 //         where: { userId: currentUser.id },
+//         include: [db.sneaker]
 //     }).then (favorite => {
 //         favorite.forEach(function(favorite){
 //             console.log(favorite.sneakerId);
@@ -34,6 +20,20 @@ mycloset.get('/', isLoggedIn, (req, res) => {
 //         res.render('mycloset/mycloset', { alerts, currentUser, favorite })
 //     })
 // })
+
+mycloset.get('/', isLoggedIn, (req, res) => {
+    const currentUser = res.locals.currentUser
+    console.log(`Current User is #${currentUser.id}`);
+    const alerts = res.locals.alerts
+    db.favorite.findAll({
+        where: { userId: currentUser.id },
+    }).then (favorite => {
+        favorite.forEach(function(favorite){
+            console.log(favorite.sneakerId);
+        })
+        res.render('mycloset/mycloset', { alerts, currentUser, favorite })
+    })
+})
 
 
 mycloset.post('/:id', function(req, res) {
