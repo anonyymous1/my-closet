@@ -40,7 +40,7 @@ browse.post('/mostPopular', isLoggedIn, (req, res) => {
             db.favorite.findOrCreate({
                 where: {
                     userId: req.user.id,
-                    sneakerId: styleID
+                    sneakerId: sneaker.id
                 }
             }).then(()=>{
             res.redirect('/browse/mostPopular')

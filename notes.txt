@@ -33,3 +33,11 @@
 //         })
 //     })
 // })
+
+<h1>MY CLOSET</h1>
+<div class="my-closet">
+        <p>Sneaker ID: <%= favorite.dataValues.brand %></p> 
+       
+
+</div>
+
