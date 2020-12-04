@@ -21,6 +21,7 @@ browse.get('/mostPopular', isLoggedIn, (req, res) => {
     })
 })
 
+
 browse.post('/mostPopular', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
