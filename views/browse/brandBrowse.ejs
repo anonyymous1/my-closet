@@ -1,0 +1,26 @@
+<h1><%= sneaker[0].brand.toUpperCase() %> </h1>
+<hr>
+
+  <div class="container">
+    <% sneaker.forEach(function(sneaker) { %>
+        <div class="card">
+            <a href="/browse/details/<%= sneaker.styleID %>"><img src="<%= sneaker.thumbnail%>" class="card-img-top"></a>
+            <div class="card-body">
+              <h5 class="card-title"><%= sneaker.silhoutte.toUpperCase()%></h5>
+              <p class="card-title"><%= sneaker.colorway%></p>
+              <h6 class="card-title">Release Date: <%= sneaker.releaseDate%></h6>
+              <hr>
+              <p class="card-text">Retail Price: $<%= sneaker.retailPrice%></p>
+              <hr>
+              <p class="card-text"><%= sneaker.description%></p>
+              <form method="POST" action="/browse/mostPopular">
+                <input hidden type="text" name="shoeName" value="<%= sneaker.shoeName %>">
+                <input hidden type="text" name="styleID" value="<%= sneaker.styleID %>">
+                <input hidden type="text" name="thumbnail" value="<%= sneaker.thumbnail %>">
+                <input hidden type="text" name="brand" value="<%= sneaker.brand%>">
+                <button class="btn btn-outline-danger" type="submit">Add to Closet</button>
+              </form>
+            </div>
+          </div>
+    <% }); %>
+  </div>

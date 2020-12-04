@@ -76,5 +76,83 @@ browse.get('/details/:styleId', isLoggedIn,(req,res) => {
     })
 })
 
+browse.get('/adidas', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`adidas`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+browse.get('/nikesb', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Nike SB`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+
+browse.get('/yeezy', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Yeezy`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+
+browse.get('/vans', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Vans`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+
+browse.get('/nike', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Nike`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+
+browse.get('/jordan', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Jordan`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+
+browse.get('/reebok', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Reebok`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
+
+browse.get('/converse', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`Converse`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
 module.exports = browse
 
