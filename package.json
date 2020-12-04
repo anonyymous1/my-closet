@@ -35,7 +35,7 @@
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
-    "sneaks-api": "github:anonyymous1/Sneaks-API"
+    "sneaks-api": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
