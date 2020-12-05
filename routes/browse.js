@@ -48,6 +48,32 @@ browse.post('/mostPopular', isLoggedIn, (req, res) => {
     })
 })
 
+browse.post('/search', isLoggedIn, (req, res) => {
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    let brand = req.body.brand;
+    let shoeName = req.body.shoeName;
+    let styleID = req.body.styleID;
+    let thumbnail = req.body.thumbnail;
+    db.sneaker.findOrCreate({
+        where: {
+            shoeName: shoeName,
+            brand: brand,
+            styleId: styleID,
+            thumbnail: thumbnail
+        }
+        }).then(([sneaker, created]) =>{
+            db.favorite.findOrCreate({
+                where: {
+                    userId: req.user.id,
+                    sneakerId: sneaker.id
+                }
+            }).then(()=>{
+            res.redirect('/browse/search')
+        })
+    })
+})
+
 browse.get('/searchTerm', isLoggedIn,(req, res) => {
     const searchTerm = req.query.searchTerm;
     const currentUser = res.locals.currentUser

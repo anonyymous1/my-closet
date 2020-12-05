@@ -9,13 +9,18 @@ const { Session } = require('express-session');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const app = express();
 const sneaks = new SneaksAPI();
+const multer = require('multer')
+const cloudinary = require('cloudinary')
+
+const uploads = multer({dest: './uploads'})
 
 //Routers
 const mycloset = require('./routes/mycloset')
 const browse = require('./routes/browse')
 
 //isLoggedIn middleware
-const isLoggedIn = require('./middleware/isLoggedIn')
+const isLoggedIn = require('./middleware/isLoggedIn');
+const db = require('./models');
 
 app.set('view engine', 'ejs');
 
@@ -60,6 +65,21 @@ app.get('/', (req, res) => {
 app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
+
+app.post('/profile/post', uploads.single('inputFile'), (req, res) => {
+  //get an input from user
+  let file = req.file.path;
+  cloudinary.uploader.upload(file, (result) => {
+    console.log(result.url);
+    db.user.findOrCreate({
+      where: {}
+    })
+    // res.render('profile', { image: result.url });
+    res.send('route good')
+
+  })
+})
+
 
 app.use('/auth', require('./routes/auth'));
 

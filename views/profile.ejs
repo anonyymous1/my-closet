@@ -3,7 +3,7 @@
     <img class="profile-img" src="https://i.imgur.com/DxhcZCh.png" alt="" srcset="">
     <h6>User Profile Image</h6>
 <!-- enctype allows us to take in media file -->
-<form action="/" method="POST" enctype="multipart/form-data">
+<form action="/profile/post" method="POST" enctype="multipart/form-data">
     <input type="file" name="inputFile"><br>
     <input type="submit" class="btn btn-danger">
 </form>
@@ -14,4 +14,9 @@
     <p><strong>User Email: </strong><%= currentUser.email %></p>
     <p><strong>User ID: </strong><%= currentUser.id %></p>
 </div>
-
+<div class="user-address">
+    <p><strong>Street Address: </strong></p>
+    <p><strong>City: </strong></p>
+    <p><strong>State: </strong></p>
+    <p><strong>Zip Code: </strong><%= currentUser.id %></p>
+</div>

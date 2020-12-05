@@ -14,7 +14,7 @@
 
         <% product.forEach(function(product) { %>
             <div class="card">
-                <img src="<%= product.thumbnail%>" class="card-img-top" alt="...">
+                <a href="/browse/details/<%= product.styleID %>"><img src="<%= product.thumbnail %>" class="card-img-top"></a>
                 <div class="card-body">
                     <h5 class="card-title"><%= product.silhoutte.toUpperCase()%></h5>
                     <p class="card-title"><%= product.colorway%></p>
@@ -22,7 +22,7 @@
                     <hr>
                     <p class="card-text">Retail Price: $ <% if (!product.retailPrice) { %>???<% } else { %><%= product.retailPrice%><% } %></p>
                     <p class="card-text"><% if (!product.description) { %>Sorry, there is no description for this item.<% } else { %><%= product.description%><% } %></p>
-                    <form method="POST" action="/browse/mostPopular">
+                    <form method="POST" action="/browse/search">
                         <input hidden type="text" name="shoeName" value="<%= product.shoeName %>">
                         <input hidden type="text" name="styleID" value="<%= product.styleID %>">
                         <input hidden type="text" name="thumbnail" value="<%= product.thumbnail %>">

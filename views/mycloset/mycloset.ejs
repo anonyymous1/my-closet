@@ -1,11 +1,21 @@
 <h1>MY CLOSET</h1>
-<div class="my-closet">
 
+
+<div class="container">
     <% favorites.forEach(function(favorite) { %>
         <% if (favorite.sneaker) { %>
-            <p><%= favorite.sneaker.brand %></p> 
-        <% } %> 
-    <% }) %>  
-
-</div>
-
+        <div class="mycloset-card">
+            <a href="/browse/details/<%= favorite.sneaker.styleId %>"><img src="<%= favorite.sneaker.thumbnail %>" class="card-img-top"></a>
+            <div class="card-body">
+              <h5 class="card-title"><%= favorite.sneaker.shoeName.toUpperCase()%></h5>
+              <h6 class="card-text"><%= favorite.sneaker.brand.toUpperCase() %></h6>
+              <p class="card-text"><%= favorite.sneaker.styleId %></p>
+              <form method="POST" action="/mycloset/<%= favorite.sneaker.id %>">
+                <input hidden type="text" name="<<%= favorite.sneaker.id %>" value="<<%= favorite.sneaker.id %>">
+                <button class="btn btn-outline-danger" type="submit">Remove from Closet</button>
+              </form>
+            </div>
+          </div>
+          <% } %> 
+    <% }); %>
+  </div>
