@@ -67,19 +67,20 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 app.post('/profile/post', uploads.single('inputFile'), (req, res) => {
-  //get an input from user
+  const currentUser = res.locals.currentUser
+  const alerts = res.locals.alerts
   let file = req.file.path;
   cloudinary.uploader.upload(file, (result) => {
     console.log(result.url);
-    db.user.findOrCreate({
-      where: {}
+    db.user.update({
+      imageUrl: result.url},
+      {returning: true, where: {id: currentUser.id}
     })
-    // res.render('profile', { image: result.url });
-    res.send('route good')
-
+    .then(function([ rowsUpdate, [updateduser] ]) {
+      res.render('profile')
+    })
   })
 })
-
 
 app.use('/auth', require('./routes/auth'));
 

@@ -10,9 +10,18 @@
               <p class="card-title"><%= sneaker.colorway%></p>
               <h6 class="card-title">Release Date: <%= sneaker.releaseDate%></h6>
               <hr>
-              <p class="card-text">Retail Price: $<%= sneaker.retailPrice%></p>
+              <% if (sneaker.retailPrice) {%>
+                <p class="card-text">Retail Price: $<%= sneaker.retailPrice%></p>
+              <% } else { %>
+                <p class="card-text">Retail Price: ???</p>
+              <% } %>  
+              
               <hr>
-              <p class="card-text"><%= sneaker.description%></p>
+              <% if (sneaker.description) {%>
+                <p class="card-text"><%= sneaker.description%></p>
+              <% } else { %>
+                <p class="card-text">Sorry, there is currently no description for this item.</p>
+              <% } %>  
               <form method="POST" action="/browse/mostPopular">
                 <input hidden type="text" name="shoeName" value="<%= sneaker.shoeName %>">
                 <input hidden type="text" name="styleID" value="<%= sneaker.styleID %>">

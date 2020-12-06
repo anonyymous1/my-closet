@@ -180,5 +180,14 @@ browse.get('/converse', isLoggedIn,(req,res) => {
     })
 })
 
+browse.get('/dc', isLoggedIn,(req,res) => {
+    const styleId = req.params.styleId
+    const currentUser = res.locals.currentUser
+    const alerts = res.locals.alerts
+    sneaks.getProducts(`DC`, function(err, sneaker){
+        res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
+    })
+})
+
 module.exports = browse
 

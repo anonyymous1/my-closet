@@ -1,22 +1,27 @@
-<h3>Welcome to your PROFILE</h3>
+<h3>Welcome to your Profile, <%= currentUser.name %></h3>
 <div class="profile-div">
-    <img class="profile-img" src="https://i.imgur.com/DxhcZCh.png" alt="" srcset="">
-    <h6>User Profile Image</h6>
-<!-- enctype allows us to take in media file -->
-<form action="/profile/post" method="POST" enctype="multipart/form-data">
-    <input type="file" name="inputFile"><br>
-    <input type="submit" class="btn btn-danger">
+    <div class="profile-image">
+        <% if (currentUser.imageUrl) { %>
+            <img class="profile-img" src="<%= currentUser.imageUrl %>" alt="" srcset="">
+        <% } else { %>
+            <img class="profile-img" src="https://i.imgur.com/DxhcZCh.png" alt="" srcset="">
+            <% } %> 
+        </div>
+        <h6>Current User Profile Image</h6>
+
+
+<form class="user-profile-form" action="/profile/post" method="POST" enctype="multipart/form-data">
+    <input type="file" name="inputFile">
+    <input type="submit" class="btn btn-outline-primary btn-sm">
 </form>
 </div>
+<hr>
+
 <div class="user-info">
-    <p><strong>User Created: </strong><%= currentUser.createdAt %></p>
-    <p><strong>Username: </strong><%= currentUser.name %></p>
-    <p><strong>User Email: </strong><%= currentUser.email %></p>
-    <p><strong>User ID: </strong><%= currentUser.id %></p>
+    <p><strong>User ID:<br></strong><%= currentUser.id %></p>
+    <p><strong>Username:<br></strong><%= currentUser.name %></p>
+    <p><strong>User Email:<br></strong><%= currentUser.email %></p>
+    <p><strong>User Created:<br></strong><%= currentUser.createdAt %></p>
+    <p><strong>Last Updated:<br></strong><%= currentUser.updatedAt %></p>
 </div>
-<div class="user-address">
-    <p><strong>Street Address: </strong></p>
-    <p><strong>City: </strong></p>
-    <p><strong>State: </strong></p>
-    <p><strong>Zip Code: </strong><%= currentUser.id %></p>
-</div>
+
