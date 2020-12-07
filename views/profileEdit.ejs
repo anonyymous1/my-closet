@@ -1,0 +1,18 @@
+<h1>User Email Edit</h1>
+
+<!-- <div id="updateEmail">
+    <form method="POST" action="/update?_method=PUT">
+        <label for="new-email" class="updateEmail">New email: </label>
+        <input type="text" name="email" id="name">
+        <input type="submit" value="Update">
+    </form>
+</div> -->
+
+<form method="POST" action="/update?_method=PUT">
+    <div class="update-form-group">
+        <label for="new-email" class="updateEmail">New Email</label>
+        <input type="text" name="email" id="name">
+        <button type="submit" class="btn btn-primary btn-sm">Update Email</button>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+  </form>

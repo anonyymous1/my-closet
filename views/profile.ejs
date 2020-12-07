@@ -20,7 +20,7 @@
 <div class="user-info">
     <p><strong>User ID:<br></strong><%= currentUser.id %></p>
     <p><strong>Username:<br></strong><%= currentUser.name %></p>
-    <p><strong>User Email:<br></strong><%= currentUser.email %></p>
+    <p><strong>User Email:<br></strong><%= currentUser.email %><a class="email-update" href="/update"> <button type="button" class="btn btn-primary btn-sm">Update</button></a></p>
     <p><strong>User Created:<br></strong><%= currentUser.createdAt %></p>
     <p><strong>Last Updated:<br></strong><%= currentUser.updatedAt %></p>
 </div>

@@ -156,3 +156,9 @@ h4 {
 .user-profile-form {
   padding-top: 20px;
 }
+.update-form-group {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

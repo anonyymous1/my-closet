@@ -11,6 +11,7 @@ const app = express();
 const sneaks = new SneaksAPI();
 const multer = require('multer')
 const cloudinary = require('cloudinary')
+const methodOverride = require('method-override');
 
 const uploads = multer({dest: './uploads'})
 
@@ -28,6 +29,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+app.use(methodOverride('_method'));
 
 
 //secret: What we actulaly giveing the user on our site as a session cookie
@@ -79,6 +81,26 @@ app.post('/profile/post', uploads.single('inputFile'), (req, res) => {
     .then(function([ rowsUpdate, [updateduser] ]) {
       res.render('profile')
     })
+  })
+})
+
+app.get('/update', isLoggedIn, (req, res) => {
+  const currentUser = res.locals.currentUser
+  const alerts = res.locals.alerts
+  res.render('profileEdit',{ currentUser, alerts });
+});
+
+app.put('/update', isLoggedIn, (req, res) => {
+  const currentUser = res.locals.currentUser
+  const alerts = res.locals.alerts
+  // console.log(currentUser.email);
+  // console.log(req.body.email);
+  db.user.update({
+      email: req.body.email
+  }, {
+      where: { id: currentUser.id }
+  }).then(() => {
+      res.redirect('/profile')
   })
 })
 
