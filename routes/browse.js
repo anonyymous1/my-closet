@@ -5,7 +5,6 @@ const SneaksAPI = require('sneaks-api');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const sneaks = new SneaksAPI();
 
-
 browse.get('/', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
@@ -188,6 +187,55 @@ browse.get('/dc', isLoggedIn,(req,res) => {
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
+
+// COMMENT ROUTE
+// browse.post('/comment', isLoggedIn, (req, res) => {
+//     const currentUser = res.locals.currentUser
+//     const alerts = res.locals.alerts
+//     let brand = req.body.brand;
+//     let shoeName = req.body.shoeName;
+//     let styleID = req.body.styleId;
+//     let thumbnail = req.body.thumbnail;
+//     let comment = req.body.comment;
+//     console.log(`New Comment: ${comment}`);
+//     db.sneaker.findAll({
+//         where: { styleId: styleID }
+//     })
+//     .then(function(sneaker) {
+//         sneaker.forEach(function(sneak){
+//         console.log(`SNEAKER ID: ${sneak[0].id}`);
+//         const sneakerId = sneaker[0].id
+//         db.favorite.findOrCreate({
+//             where: { 
+//                 userId: currentUser.id,
+//                 sneakerId: sneakerId,
+//                 comment: comment
+//             }
+//         })
+//         sneaks.getProducts(`${styleID}`, function(err, sneaker){
+//         res.redirect('/mycloset')
+//         })
+//     })
+// })
+
+// browse.get('/details/:styleId', isLoggedIn,(req,res) => {
+//     const styleId = req.params.styleId
+//     const currentUser = res.locals.currentUser
+//     const alerts = res.locals.alerts
+//     sneaks.getProducts(`${styleId}`, function(err, sneaker){
+//     }).then(data =>{
+//         db.sneaker.findAll({
+//             where: { styleId: styleId }
+//         }).then(function(sneaker) {
+//             db.favorite.findAll({
+//                 where: { sneakerId: sneaker[0].id }
+//             }).then(data=>{
+//                 console.log(data);
+//             })
+//         })
+//     })
+//     res.render('details', {currentUser, alerts, sneaker})
+// })
 
 module.exports = browse
 

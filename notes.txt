@@ -1,0 +1,228 @@
+favorite {
+  dataValues: {
+    userId: 5,
+    sneakerId: 38,
+    comment: null,
+    createdAt: 2020-12-05T04:55:10.718Z,
+    updatedAt: 2020-12-05T04:55:10.718Z,
+    sneaker: sneaker {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },
+  _previousDataValues: {
+    userId: 5,
+    sneakerId: 38,
+    comment: null,
+    createdAt: 2020-12-05T04:55:10.718Z,
+    updatedAt: 2020-12-05T04:55:10.718Z,
+    sneaker: sneaker {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    include: [ [Object] ],
+    includeNames: [ 'sneaker' ],
+    includeMap: { sneaker: [Object] },
+    includeValidated: true,
+    attributes: [ 'userId', 'sneakerId', 'comment', 'createdAt', 'updatedAt' ],
+    raw: true
+  },
+  isNewRecord: false,
+  sneaker: sneaker {
+    dataValues: {
+      id: 38,
+      shoeName: 'Converse Chuck Taylor All-Star 70s Hi Off-White',
+      brand: 'Converse',
+      styleId: '163862C',
+      thumbnail: 'https://stockx.imgix.net/images/Converse-Chuck-Taylor-All-Star-70s-Hi-Off-White-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1606318827',
+      createdAt: 2020-12-04T15:14:43.961Z,
+      updatedAt: 2020-12-04T15:14:43.961Z
+    },
+    _previousDataValues: {
+      id: 38,
+      shoeName: 'Converse Chuck Taylor All-Star 70s Hi Off-White',
+      brand: 'Converse',
+      styleId: '163862C',
+      thumbnail: 'https://stockx.imgix.net/images/Converse-Chuck-Taylor-All-Star-70s-Hi-Off-White-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1606318827',
+      createdAt: 2020-12-04T15:14:43.961Z,
+      updatedAt: 2020-12-04T15:14:43.961Z
+    },
+    _changed: Set(0) {},
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      include: undefined,
+      includeNames: undefined,
+      includeMap: undefined,
+      includeValidated: true,
+      raw: true,
+      attributes: undefined
+    },
+    isNewRecord: false
+  }
+}
+favorite {
+  dataValues: {
+    userId: 5,
+    sneakerId: 39,
+    comment: null,
+    createdAt: 2020-12-05T02:44:05.074Z,
+    updatedAt: 2020-12-05T02:44:05.074Z,
+    sneaker: sneaker {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },
+  _previousDataValues: {
+    userId: 5,
+    sneakerId: 39,
+    comment: null,
+    createdAt: 2020-12-05T02:44:05.074Z,
+    updatedAt: 2020-12-05T02:44:05.074Z,
+    sneaker: sneaker {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    include: [ [Object] ],
+    includeNames: [ 'sneaker' ],
+    includeMap: { sneaker: [Object] },
+    includeValidated: true,
+    attributes: [ 'userId', 'sneakerId', 'comment', 'createdAt', 'updatedAt' ],
+    raw: true
+  },
+  isNewRecord: false,
+  sneaker: sneaker {
+    dataValues: {
+      id: 39,
+      shoeName: 'Nike Dunk High Send Help 2',
+      brand: 'Nike',
+      styleId: '616752-016',
+      thumbnail: 'https://stockx.imgix.net/images/Nike-Dunk-High-Send-Help-2-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1607046168',
+      createdAt: 2020-12-04T19:20:42.057Z,
+      updatedAt: 2020-12-04T19:20:42.057Z
+    },
+    _previousDataValues: {
+      id: 39,
+      shoeName: 'Nike Dunk High Send Help 2',
+      brand: 'Nike',
+      styleId: '616752-016',
+      thumbnail: 'https://stockx.imgix.net/images/Nike-Dunk-High-Send-Help-2-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1607046168',
+      createdAt: 2020-12-04T19:20:42.057Z,
+      updatedAt: 2020-12-04T19:20:42.057Z
+    },
+    _changed: Set(0) {},
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      include: undefined,
+      includeNames: undefined,
+      includeMap: undefined,
+      includeValidated: true,
+      raw: true,
+      attributes: undefined
+    },
+    isNewRecord: false
+  }
+}
+favorite {
+  dataValues: {
+    userId: 5,
+    sneakerId: 46,
+    comment: null,
+    createdAt: 2020-12-05T02:44:44.293Z,
+    updatedAt: 2020-12-05T02:44:44.293Z,
+    sneaker: sneaker {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },
+  _previousDataValues: {
+    userId: 5,
+    sneakerId: 46,
+    comment: null,
+    createdAt: 2020-12-05T02:44:44.293Z,
+    updatedAt: 2020-12-05T02:44:44.293Z,
+    sneaker: sneaker {
+      dataValues: [Object],
+      _previousDataValues: [Object],
+      _changed: Set(0) {},
+      _options: [Object],
+      isNewRecord: false
+    }
+  },
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    include: [ [Object] ],
+    includeNames: [ 'sneaker' ],
+    includeMap: { sneaker: [Object] },
+    includeValidated: true,
+    attributes: [ 'userId', 'sneakerId', 'comment', 'createdAt', 'updatedAt' ],
+    raw: true
+  },
+  isNewRecord: false,
+  sneaker: sneaker {
+    dataValues: {
+      id: 46,
+      shoeName: 'Nike Dunk SB Low Staple NYC Pigeon',
+      brand: 'Nike',
+      styleId: '304292-011',
+      thumbnail: 'https://stockx.imgix.net/images/Nike-Dunk-SB-Low-Staple-NYC-Pigeon-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1606322680',
+      createdAt: 2020-12-05T02:44:44.282Z,
+      updatedAt: 2020-12-05T02:44:44.282Z
+    },
+    _previousDataValues: {
+      id: 46,
+      shoeName: 'Nike Dunk SB Low Staple NYC Pigeon',
+      brand: 'Nike',
+      styleId: '304292-011',
+      thumbnail: 'https://stockx.imgix.net/images/Nike-Dunk-SB-Low-Staple-NYC-Pigeon-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1606322680',
+      createdAt: 2020-12-05T02:44:44.282Z,
+      updatedAt: 2020-12-05T02:44:44.282Z
+    },
+    _changed: Set(0) {},
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      include: undefined,
+      includeNames: undefined,
+      includeMap: undefined,
+      includeValidated: true,
+      raw: true,
+      attributes: undefined
+    },
+    isNewRecord: false
+  }
+}
