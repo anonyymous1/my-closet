@@ -16,6 +16,7 @@ A sneaker apps for sneakerheads.
 ![Image 2 of EDR](https://i.imgur.com/KnqKOa7.png)
 
 
+
 ### About
 
 MyCloset is a sneaker app thats lets you save your own collection of sneakers and help you get details for resale or if you would like to buy them.
@@ -23,7 +24,9 @@ MyCloset is a sneaker app thats lets you save your own collection of sneakers an
 ## User Story
 
 As the user, you need to be able to keep track of what sneakers you have in your inventory. Users with alot of stock and sneakers sometimes forget what they have. This way i can add to what I have and my favorites.
-
+![Image 1 of Preview](https://i.imgur.com/fuy5XAw.png)
+![Image 2 of Preview](https://i.imgur.com/g4sZPmU.png)
+![Image 3 of Preview](https://i.imgur.com/ws5iVZu.png)
 You can use the app by clicking [here](https://project2-mycloset.herokuapp.com/) or doing the following:
 
 ### Install
