@@ -15,8 +15,6 @@ A sneaker apps for sneakerheads.
 ![Image of EDR](https://i.imgur.com/jV7JNlH.png)
 ![Image 2 of EDR](https://i.imgur.com/KnqKOa7.png)
 
-
-
 ### About
 
 MyCloset is a sneaker app thats lets you save your own collection of sneakers and help you get details for resale or if you would like to buy them.
