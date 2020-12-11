@@ -37,8 +37,7 @@
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0",
-    "sneaks-api": "^1.1.1"
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

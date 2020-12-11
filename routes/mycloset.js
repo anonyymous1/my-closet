@@ -2,9 +2,7 @@ const express = require('express');
 const mycloset = express.Router();
 const db = require('../models');
 const passport = require('../config/ppConfig');
-const SneaksAPI = require('sneaks-api');
 const isLoggedIn = require('../middleware/isLoggedIn');
-const sneaks = new SneaksAPI();
 
 mycloset.get('/', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
@@ -36,7 +34,9 @@ mycloset.get('/details/:styleId', isLoggedIn, (req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`${styleId}`, function(err, sneaker){;
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?styleID=${styleId}`).then((response)=>{
+        // console.log(response.data);
+        const sneaker = response.data
         res.render('details', {currentUser, alerts, sneaker})
     })
 })

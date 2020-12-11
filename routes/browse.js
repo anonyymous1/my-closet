@@ -1,9 +1,9 @@
 const express = require('express');
 const browse = express.Router();
 const db = require('../models');
-const SneaksAPI = require('sneaks-api');
 const isLoggedIn = require('../middleware/isLoggedIn');
-const sneaks = new SneaksAPI();
+const Axios = require('axios')
+
 
 browse.get('/', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
@@ -14,9 +14,9 @@ browse.get('/', isLoggedIn, (req, res) => {
 browse.get('/mostPopular', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getMostPopular(function(err, products){
-    const product = products
-    res.render('browse/mostPopular', { alerts, currentUser, product })
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?yeezy`).then((products)=> {
+        const sneakers = products.data
+        res.render('browse/mostPopular', { alerts, currentUser, sneakers })
     })
 })
 
@@ -77,8 +77,8 @@ browse.get('/searchTerm', isLoggedIn,(req, res) => {
     const searchTerm = req.query.searchTerm;
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`${searchTerm}`, function(err, products){
-        const product = products
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?${searchTerm}`).then((products)=>{
+        const product = products.data
         res.render('browse/search', { alerts, currentUser, product })
     })
 })
@@ -86,17 +86,20 @@ browse.get('/searchTerm', isLoggedIn,(req, res) => {
 browse.get('/search', isLoggedIn, (req, res) => {
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(``, function(err, products){
-        const product = products
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?`).then((products)=>{
+        const product = products.data
     res.render('browse/search', { alerts, currentUser, product })
     })
 })
 
 browse.get('/details/:styleId', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
+    console.log(styleId);
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`${styleId}`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?styleID=${styleId}`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('details', {currentUser, alerts, sneaker})
     })
 })
@@ -105,7 +108,9 @@ browse.get('/adidas', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`adidas`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -114,7 +119,9 @@ browse.get('/nikesb', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Nike SB`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -124,7 +131,9 @@ browse.get('/yeezy', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Yeezy`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -134,7 +143,9 @@ browse.get('/vans', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Vans`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -144,7 +155,9 @@ browse.get('/nike', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Nike`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -154,7 +167,9 @@ browse.get('/jordan', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Jordan`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -164,7 +179,9 @@ browse.get('/reebok', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Reebok`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -174,7 +191,9 @@ browse.get('/converse', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`Converse`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
@@ -183,7 +202,9 @@ browse.get('/dc', isLoggedIn,(req,res) => {
     const styleId = req.params.styleId
     const currentUser = res.locals.currentUser
     const alerts = res.locals.alerts
-    sneaks.getProducts(`DC`, function(err, sneaker){
+    Axios.get(`http://sneaks-testing.herokuapp.com/home?adidas`).then((response)=>{
+        // console.log(response.data);
+        let sneaker = response.data
         res.render('browse/brandBrowse', {currentUser, alerts, sneaker})
     })
 })
